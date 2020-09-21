@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TRAILme</title>
+
+    <link rel="stylesheet" href="results.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="materialize/css/materialize.min.css"
+      media="screen,projection"
+    />
+    <!-- Materilaze icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Third party icons -->
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+  </head>
+
+  <body>
+    <section class="container">
+      <div>
+        <a
+          class="btn-floating btn-small waves-effect waves-light grey"
+          id="homeButton"
+          href="index.html"
+          ><i id="homeIcon" class="material-icons">home</i></a
+        >
+      </div>
+      <div id="weather-box">
+        <div>Hourly Weather</div>
+        <table id="weathertable">
+          <tr id="h-1">
+            <th id="h-0-temp"></th>
+            <th id="h-0-weather"></th>
+          </tr>
+          <tr id="h-2">
+            <th id="h-1-temp"></th>
+            <th id="h-1-weather"></th>
+          </tr>
+          <tr id="h-3">
+            <th id="h-2-temp"></th>
+            <th id="h-2-weather"></th>
+          </tr>
+          <tr id="h-4">
+            <th id="h-3-temp"></th>
+            <th id="h-3-weather"></th>
+          </tr>
+          <tr id="h-5">
+            <th id="h-4-temp"></th>
+            <th id="h-4-weather"></th>
+          </tr>
+        </table>
+      </div>
+      <div></div>
+      <div>
+        <h3>Trails</h3>
+        <div class="append-trail-info"></div>
+      </div>
+    </section>
+    <script src="results.js"></script>
+  </body>
+</html>

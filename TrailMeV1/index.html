@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRAILme</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="trailme.js"></script>
+    <script src="results.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="title-bar">TRAILme</div>
+
+      <div id="trail-levels">
+        <div id="title">
+          <p>Trail Level</p>
+        </div>
+        <div class="row">
+          <div class="checkboxes">
+            <label>
+              <input id="easyBtn" type="checkbox" class="filled-in" />
+              <span>Easy</span>
+            </label>
+          </div>
+
+          <div class="checkboxes">
+            <label>
+              <input id="easyIntBtn" type="checkbox" class="filled-in" />
+              <span>Easy / Intermediate</span>
+            </label>
+          </div>
+
+          <div class="checkboxes">
+            <label>
+              <input id="intermediateBtn" type="checkbox" class="filled-in" />
+
+              <span>Intermediate</span>
+            </label>
+          </div>
+
+          <div class="checkboxes">
+            <label>
+              <input id="intDiffBtn" type="checkbox" class="filled-in" />
+              <span>Intermediate / Difficult</span>
+            </label>
+          </div>
+
+          <div class="checkboxes">
+            <label>
+              <input id="difficultBtn" type="checkbox" class="filled-in" />
+              <span>Difficult</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <a class="dropdown-button btn" href="#" data-target="dropdown1"
+          >Cities</a
+        >
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">Austin</a></li>
+          <li><a href="#!">San Marcos</a></li>
+          <li><a href="#!">San Antonio</a></li>
+          <li><a href="#!">Dallas</a></li>
+          <li><a href="#!">Waco</a></li>
+          <li><a href="#!">Fort Worth</a></li>
+          <li><a href="#!">Houston</a></li>
+          <li><a href="#!">Corpus Christi</a></li>
+          <li><a href="#!">Amarillo</a></li>
+          <li><a href="#!">El Paso</a></li>
+        </ul>
+      </div>
+
+      <div class="Submit-btn">
+        <button id="submit-btn" class="waves-effect waves-light btn">
+          Let's Go!
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
