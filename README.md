@@ -84,7 +84,8 @@ TRAILme features is a web app will show hiking trails and information near the u
 
 ## Core Node Dependencies
 
-- Create-React-App
+- Create-React-App using `npx create-react-app my-app`
+- @auth0/auth0-react using `npm i @auth0/auth0-react`
   --more NPM packages will be defined and explained here--
 
 ---
