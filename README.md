@@ -45,7 +45,7 @@ SO THAT I can find a hiking trail that suites my needs
 
 ## Flow Chart
 
-<img src="TRAILmeV2MERNflowchart.png" width="250" />
+<img src="TRAILmeV2MERNflowchart.png" width="500" />
 
 ---
 
@@ -101,7 +101,7 @@ Link to Project Board used for application development - [Project Board](https:/
 
 ## ER Diagram
 
-<img src="TRAILme_ERdiagram.png" width="500" />
+<img src="ER Diagram for TRAILme.png" width="500" />
 
 --
 
