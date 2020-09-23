@@ -45,7 +45,7 @@ SO THAT I can find a hiking trail that suites my needs
 
 ## Flow Chart
 
-/flow chart here\
+<img src="TRAILmeV2MERNflowchart.png" width="250" />
 
 ---
 
