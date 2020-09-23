@@ -45,7 +45,7 @@ SO THAT I can find a hiking trail that suites my needs
 
 ## Flow Chart
 
-<img src="TRAILmeV2MERNflowchart.png" width="250" />
+<img src="TRAILmeV2MERNflowchart.png" width="500" />
 
 ---
 
@@ -84,7 +84,8 @@ TRAILme features is a web app will show hiking trails and information near the u
 
 ## Core Node Dependencies
 
-- Create-React-App
+- Create-React-App using `npx create-react-app my-app`
+- @auth0/auth0-react using `npm i @auth0/auth0-react`
   --more NPM packages will be defined and explained here--
 
 ---
@@ -101,7 +102,7 @@ Link to Project Board used for application development - [Project Board](https:/
 
 ## ER Diagram
 
-<img src="TRAILme_ERdiagram.png" width="500" />
+<img src="ER Diagram for TRAILme.png" width="500" />
 
 --
 
