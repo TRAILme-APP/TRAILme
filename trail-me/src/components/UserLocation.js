@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 
+var NodeGeocoder = require("node-geocoder");
+
 const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 class UserLocation extends Component {
@@ -11,20 +13,29 @@ class UserLocation extends Component {
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-
       const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleMapApiKey}`;
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => console.log("This is your data", data));
+      let response = await fetch(apiUrl);
+      let data = await response.json();
 
-      //get user city and state from JSON
-      // userCityState =
+      var options = {
+        provider: "google",
+        httpAdapter: "https",
+        apiKey: `${googleMapApiKey}`,
+        formatter: "json",
+      };
+
+      var geocoder = NodeGeocoder(options);
+
+      geocoder.reverse({ lat: `${latitude}`, lon: `${longitude}` }, function (
+        err,
+        res
+      ) {
+        console.log(res);
+      });
 
       //put userCityState text in form
     });
@@ -32,14 +43,10 @@ class UserLocation extends Component {
 
   render() {
     return (
-      <div>
-        <Form.Group>
-          <Form.Control size="lg" type="text" placeholder="User Location" />
-        </Form.Group>
-
-        <Dropdown>
+      <div className="Location">
+        <Dropdown className="LocationDropdown">
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Location
+            Cities
           </Dropdown.Toggle>
 
           <Dropdown.Menu onClick={() => this.handleClick()}>
@@ -55,6 +62,10 @@ class UserLocation extends Component {
             <Dropdown.Item href="#"> * Use My Location</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
+        <Form.Group className="LocationForm">
+          <Form.Control size="lg" type="text" placeholder="Your Location" />
+        </Form.Group>
       </div>
     );
   }

@@ -1,15 +1,25 @@
 img {
-	width: 120px;
+  width: 120px;
 }
 .App {
-	background-image: url("/forest.jpg");
+  background-image: url("/forest.jpg");
 
-	/* Set a specific height */
-	height: 100vh;
+  /* Set a specific height */
+  height: 100vh;
 
-	/* Create the parallax scrolling effect */
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Location {
+  display: flex;
+  justify-content: center;
+  margin-top: 30%;
+}
+
+.LocationDropdown {
+  margin: 10px;
 }
