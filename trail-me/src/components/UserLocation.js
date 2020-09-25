@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 
-const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 class UserLocation extends Component {
   constructor(props) {
@@ -18,10 +18,15 @@ class UserLocation extends Component {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
 
-      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleMapApiKey}`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => console.log("This is your data", data));
+
+      //get user city and state from JSON
+      // userCityState =
+
+      //put userCityState text in form
     });
   }
 
