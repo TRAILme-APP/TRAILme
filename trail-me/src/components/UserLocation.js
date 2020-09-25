@@ -17,6 +17,11 @@ class UserLocation extends Component {
 
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
+
+      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => console.log("This is your data", data));
     });
   }
 
