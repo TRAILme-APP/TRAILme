@@ -5,6 +5,21 @@ import Form from "react-bootstrap/Form";
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 class UserLocation extends Component {
+  constructor(props) {
+    super();
+    this.state = {};
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+  }
+
   render() {
     return (
       <div>
