@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
+const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
 class UserLocation extends Component {
   render() {
     return (

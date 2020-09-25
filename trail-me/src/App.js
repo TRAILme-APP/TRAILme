@@ -5,6 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "./components/Navbar";
 import UserLocation from "./components/UserLocation";
 
+require("dotenv").config();
+
 function App() {
   const { isLoading } = useAuth0();
 
