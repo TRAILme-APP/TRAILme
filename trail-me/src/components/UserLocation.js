@@ -47,6 +47,13 @@ class UserLocation extends Component {
     });
   }
 
+  handleClick = (e) => {
+    console.log("clicked!", e);
+    this.setState({
+      inputValue: `${Dropdown.Item.text}`,
+    });
+  };
+
   render() {
     return (
       <div className="Location">
@@ -67,7 +74,7 @@ class UserLocation extends Component {
             </svg>
           </Dropdown.Toggle>
 
-          <Dropdown.Menu onClick={() => this.handleClick()}>
+          <Dropdown.Menu onClick={(e) => this.handleClick()}>
             <Dropdown.Item href="#">Austin</Dropdown.Item>
             <Dropdown.Item href="#">Corpus Christi</Dropdown.Item>
             <Dropdown.Item href="#">El Paso</Dropdown.Item>
