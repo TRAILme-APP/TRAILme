@@ -9,11 +9,11 @@ const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 class UserLocation extends Component {
   constructor(props) {
     super();
-    this.state = {};
+    this.state = { inputValue: "" };
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(async function (position) {
+    navigator.geolocation.getCurrentPosition(async (position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
@@ -30,14 +30,20 @@ class UserLocation extends Component {
 
       var geocoder = NodeGeocoder(options);
 
-      geocoder.reverse({ lat: `${latitude}`, lon: `${longitude}` }, function (
-        err,
-        res
-      ) {
-        console.log(res);
-      });
-
-      //put userCityState text in form
+      geocoder.reverse(
+        { lat: `${latitude}`, lon: `${longitude}` },
+        (err, res) => {
+          console.log(
+            "RES: ",
+            res[0]?.city,
+            res[0]?.administrativeLevels?.level1short
+          );
+          this.setState({
+            inputValue:
+              res[0]?.city + ", " + res[0]?.administrativeLevels?.level1short,
+          });
+        }
+      );
     });
   }
 
@@ -75,7 +81,12 @@ class UserLocation extends Component {
         </Dropdown>
 
         <Form.Group className="LocationForm">
-          <Form.Control size="lg" type="text" placeholder="Your Location" />
+          <Form.Control
+            size="lg"
+            type="text"
+            placeholder="Your Location"
+            value={this.state.inputValue}
+          />
         </Form.Group>
       </div>
     );
