@@ -5,7 +5,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "./components/Navbar"
 import OpenWeather from "./components/OpenWeather"
 import Navbar from "./components/Navbar";
+
+import SelectPath from "./components/SelectPath";
+
+
 import UserLocation from "./components/UserLocation";
+
 require("dotenv").config();
 
 
@@ -18,8 +23,12 @@ function App() {
     <div className="App">
       <Navbar />
       <Profile />
+
+      <SelectPath />
+
       <OpenWeather /> 
      <UserLocation />
+
 
     </div>
   );
