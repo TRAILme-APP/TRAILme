@@ -3,7 +3,7 @@ import "./App.css";
 import Profile from "./components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "./components/Navbar";
-import UserLocation from "./components/UserLocation";
+import SelectPath from "./components/SelectPath";
 
 require("dotenv").config();
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Profile />
-      <UserLocation />
+      <SelectPath />
     </div>
   );
 }
