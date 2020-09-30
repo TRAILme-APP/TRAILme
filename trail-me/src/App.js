@@ -9,6 +9,8 @@ import SelectPath from "./components/SelectPath";
 
 import UserLocation from "./components/UserLocation";
 
+import Result from "./components/Diffcultylevel/Result"
+
 require("dotenv").config();
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Profile />
-
+      <Result />
       <SelectPath />
 
       <OpenWeather />
