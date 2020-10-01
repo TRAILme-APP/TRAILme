@@ -1,13 +1,14 @@
 import React from "react";
-import "./App.css";
-import Profile from "./components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import UserLocation from "./components/UserLocation";
+import SelectPath from "./components/SelectPath";
 import OpenWeather from "./components/OpenWeather";
 
-import SelectPath from "./components/SelectPath";
-
-import UserLocation from "./components/UserLocation";
+import "./App.css";
 
 require("dotenv").config();
 
@@ -18,13 +19,12 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
       <Profile />
-
-      <SelectPath />
-
-      <OpenWeather />
+      <Navbar />
+      <Hero />
       <UserLocation />
+      <SelectPath />
+      <OpenWeather />
     </div>
   );
 }
