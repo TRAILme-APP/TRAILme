@@ -1,22 +1,22 @@
 img {
-	width: 120px;
+  width: 120px;
 }
 .App {
-	background-image: url("/forest.jpg");
+  background-image: url("/forest.jpg");
 
-	/* Set a specific height */
-	height: 100vh;
+  /* Set a specific height */
+  height: 100vh;
 
-	/* Create the parallax scrolling effect */
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .Location {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .LocationDropdown {
@@ -24,12 +24,19 @@ img {
 	flex-direction: column;
 	justify-content: space-evenly;
 	/* margin: 10px; */
+
 }
 
 .selectPath {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  color: white;
+  margin: auto;
+  text-align-last: center;
 }
