@@ -11,6 +11,8 @@ import UserLocation from "./components/UserLocation";
 
 import Result from "./components/Diffcultylevel/Result"
 
+import { Nav } from "react-bootstrap";
+
 require("dotenv").config();
 
 function App() {
@@ -21,12 +23,15 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Profile />
-      <Result />
-      <SelectPath />
-
+      <Nav className="p-3">
+        <UserLocation />
+        <SelectPath />
+        <Profile />
+      </Nav>
       <OpenWeather />
-      <UserLocation />
+      <Result />
+
+
     </div>
   );
 }

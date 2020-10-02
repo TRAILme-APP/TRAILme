@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { DropdownButton } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
+import axios from "axios";
+
 
 var NodeGeocoder = require("node-geocoder");
 
@@ -10,10 +12,14 @@ const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 class UserLocation extends Component {
   constructor(props) {
     super();
-    this.state = { inputValue: "Austin" };
+    this.state = { inputValue: "Austin", lat: "", lon: "" };
   }
 
   componentDidMount() {
+
+
+
+
     navigator.geolocation.getCurrentPosition(async (position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -50,10 +56,23 @@ class UserLocation extends Component {
 
   handleClick = (e) => {
     console.log("clicked!", e);
+    this.getCity();
     this.setState({
       inputValue: e
     });
   };
+
+  getCity = () => {
+
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputValue}&appid=6331b558a2d7fa66a892d8e22187e11a`
+      )
+      .then((response) => {
+        console.log(response.data.coord.lat);
+
+      });
+  }
 
   render() {
     return (
@@ -93,7 +112,7 @@ class UserLocation extends Component {
         <div id="block2">
           <Form.Group className="LocationForm">
             <Form.Control
-              size="lg"
+              size="md"
               type="text"
               placeholder="Your Location"
               value={this.state.inputValue}

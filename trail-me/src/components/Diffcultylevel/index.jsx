@@ -39,29 +39,34 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
 function GetDifficulty() {
-  const [value, setValue] = useState("");
-  const handleSelect = (e) => {
-    console.log(e);
-    setValue(e);
-  };
-  return (
-    <div>
-      <DropdownButton
-        alignRight
-        title="Dropdown right"
-        id="dropdown-menu-align-right"
-        onSelect={handleSelect}
-      >
-        <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
-        <Dropdown.Item eventKey="Easy/Intermediate">Easy/Intermediate</Dropdown.Item>
-        <Dropdown.Item eventKey="Intermediate">Intermediate</Dropdown.Item>
-        <Dropdown.Item eventKey="Intermediate/Diffcult">Intermediate/Diffcult</Dropdown.Item>
-        <Dropdown.Item eventKey="Diffcult">Diffcult</Dropdown.Item>
-        <Dropdown.Item eventKey="Very Diffcult">Very Diffcult</Dropdown.Item>
-      </DropdownButton>
-      <h4>You selected {value}</h4>
-    </div>
-  );
+	const [value, setValue] = useState("");
+	const handleSelect = (e) => {
+		console.log(e);
+		setValue(e);
+	};
+	return (
+		<div>
+			<DropdownButton
+				alignRight
+				title="Level Select"
+				id="dropdown-menu-align-right"
+				variant="secondary"
+				onSelect={handleSelect}
+			>
+				<Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
+				<Dropdown.Item eventKey="Easy/Intermediate">
+					Easy/Intermediate
+				</Dropdown.Item>
+				<Dropdown.Item eventKey="Intermediate">Intermediate</Dropdown.Item>
+				<Dropdown.Item eventKey="Intermediate/Diffcult">
+					Intermediate/Diffcult
+				</Dropdown.Item>
+				<Dropdown.Item eventKey="Diffcult">Diffcult</Dropdown.Item>
+				<Dropdown.Item eventKey="Very Diffcult">Very Diffcult</Dropdown.Item>
+			</DropdownButton>
+			{/* <h4>You selected {value}</h4> */}
+		</div>
+	);
 }
 
 export default GetDifficulty;
