@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import Profile from "./components/Profile";
 import UserLocation from "./components/UserLocation";
 import SelectPath from "./components/SelectPath";
+import RangeInput from "./components/RangeInput";
 import OpenWeather from "./components/OpenWeather";
 
 import "./App.css";
@@ -26,6 +27,7 @@ function App() {
         <Profile />
         <UserLocation />
         <SelectPath />
+        <RangeInput />
       </Nav>
       <OpenWeather />
     </div>
