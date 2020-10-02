@@ -86,6 +86,18 @@ TRAILme features is a web app will show hiking trails and information near the u
 
 - Create-React-App using `npx create-react-app my-app`
 - @auth0/auth0-react using `npm i @auth0/auth0-react`
+- Axios using `npm i Axios`
+- Bootstrap using `npm i Bootstrap`
+- Compression using `npm i Compression`
+- Dotenv using `npm i Dotenv`
+- Moment using `npm i Moment`
+- Prop-types using `npm i Prop-types`
+- Google-maps-react using `npm i Google-maps-react`
+- Node-geocoder using `npm i Node-geocoder`
+- Express using `npm i Express`
+- Mongoose using `npm i Mongoose`
+- Morgan using `npm i Morgan`
+
   --more NPM packages will be defined and explained here--
 
 ---
