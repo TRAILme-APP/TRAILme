@@ -1,18 +1,15 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Nav } from "react-bootstrap";
 
-import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Profile from "./components/Profile";
 import UserLocation from "./components/UserLocation";
 import SelectPath from "./components/SelectPath";
 import OpenWeather from "./components/OpenWeather";
 
 import "./App.css";
-
-import Result from "./components/Diffcultylevel/Result"
-
-import { Nav } from "react-bootstrap";
 
 require("dotenv").config();
 
@@ -24,14 +21,13 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Nav className="p-3">
+      <Hero />
+      <Nav>
+        <Profile />
         <UserLocation />
         <SelectPath />
-        <Profile />
       </Nav>
       <OpenWeather />
-      <Result />
-
     </div>
   );
 }
