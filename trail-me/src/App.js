@@ -10,6 +10,10 @@ import OpenWeather from "./components/OpenWeather";
 
 import "./App.css";
 
+import Result from "./components/Diffcultylevel/Result"
+
+import { Nav } from "react-bootstrap";
+
 require("dotenv").config();
 
 function App() {
@@ -19,12 +23,15 @@ function App() {
 
   return (
     <div className="App">
-      <Profile />
       <Navbar />
-      <Hero />
-      <UserLocation />
-      <SelectPath />
+      <Nav className="p-3">
+        <UserLocation />
+        <SelectPath />
+        <Profile />
+      </Nav>
       <OpenWeather />
+      <Result />
+
     </div>
   );
 }

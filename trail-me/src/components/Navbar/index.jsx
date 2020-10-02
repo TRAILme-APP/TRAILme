@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 
 export default function index() {
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

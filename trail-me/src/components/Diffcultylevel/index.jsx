@@ -5,9 +5,33 @@ import Button from "react-bootstrap/ButtonGroup";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
-// function clickedMe(){
-//     alert("you clicked me!")
+// // function clickedMe(){
+// //     alert("you clicked me!")
+// // }
+
+// export default function Buttondrop() {
+// 	return (
+// 		<div className="mb-2">
+// 			{[DropdownButton].map((DropdownType, idx) => (
+// 				<DropdownType
+// 					as={ButtonGroup}
+// 					key={idx}
+// 					id={`dropdown-button-drop-${idx}`}
+// 					size="lg"
+// 					title="Pick Your Level"
+// 				>
+// 					<Dropdown.Item eventKey="1">Easy</Dropdown.Item>
+// 					<Dropdown.Item eventKey="2">Easy/Intermediate</Dropdown.Item>
+// 					<Dropdown.Item eventKey="2">Intermediate</Dropdown.Item>
+// 					<Dropdown.Item eventKey="2">Intermediate/Diffcult</Dropdown.Item>
+// 					<Dropdown.Item eventKey="3">Diffcult</Dropdown.Item>
+// 					<Dropdown.Item eventKey="3">Very Diffcult</Dropdown.Item>
+// 				</DropdownType>
+// 			))}
+// 		</div>
+// 	);
 // }
+
 
 class LevelsDropdown extends Component {
   constructor(props) {

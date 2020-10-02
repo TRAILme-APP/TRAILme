@@ -20,10 +20,11 @@ img {
 }
 
 .LocationDropdown {
-  display: inline-block;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin: 10px;
+	display: inline-block;
+	flex-direction: column;
+	justify-content: space-evenly;
+	/* margin: 10px; */
+
 }
 
 .selectPath {
