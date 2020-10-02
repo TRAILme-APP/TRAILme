@@ -10,7 +10,7 @@ const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 class UserLocation extends Component {
   constructor(props) {
     super();
-    this.state = { inputValue: "Austin" };
+    this.state = { inputValue: "Austin, TX" };
   }
 
   componentDidMount() {
