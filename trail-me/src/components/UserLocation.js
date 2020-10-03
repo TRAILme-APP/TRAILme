@@ -20,6 +20,9 @@ class UserLocation extends Component {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
+      this.props.updateLat(latitude);
+      this.props.updateLong(longitude);
+
       const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleMapApiKey}`;
       let response = await fetch(apiUrl);
       let data = await response.json();
@@ -50,8 +53,8 @@ class UserLocation extends Component {
     });
   }
 
-  handleClick = (e) => {
-    console.log("clicked!", e);
+  handleClick = (e, props) => {
+    props.updateDifficulty(e);
     this.getCity();
     this.setState({
       inputValue: e,

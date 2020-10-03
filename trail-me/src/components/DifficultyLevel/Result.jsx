@@ -5,25 +5,29 @@ import CardColumns from "react-bootstrap/CardColumns";
 import dotenv from "dotenv";
 
 dotenv.config();
-console.log(
-  "This is the Hiking API Key: ",
-  process.env.REACT_APP_HIKING_PROJECT_API_KEY
-);
 
-export default class Result extends Component {
+class Result extends Component {
   state = {
     trail: [],
+    submitRange: this.props.submitRange,
   };
 
   componentDidMount() {
     axios
       .get(
-        "https://www.hikingproject.com/data/get-trails?lat=30.266666&lon=-97.73333&maxDistance=50&key=" +
+        `https://www.hikingproject.com/data/get-trails?lat=${this.props.submitLat}&lon=${this.props.submitLong}&maxDistance=${this.props.submitRange}&key=` +
           process.env.REACT_APP_HIKING_PROJECT_API_KEY
       )
       // .then((response) => console.log(response.data.trails))
       .then((response) => this.setState({ trail: response.data.trails }));
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.submitRange !== this.props.submitRange) {
+      this.setState({ submitRange: this.props.submitRange });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -51,3 +55,5 @@ export default class Result extends Component {
     );
   }
 }
+
+export default Result;

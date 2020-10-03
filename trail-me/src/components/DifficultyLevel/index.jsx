@@ -23,15 +23,14 @@ import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 // 					<Dropdown.Item eventKey="1">Easy</Dropdown.Item>
 // 					<Dropdown.Item eventKey="2">Easy/Intermediate</Dropdown.Item>
 // 					<Dropdown.Item eventKey="2">Intermediate</Dropdown.Item>
-// 					<Dropdown.Item eventKey="2">Intermediate/Diffcult</Dropdown.Item>
-// 					<Dropdown.Item eventKey="3">Diffcult</Dropdown.Item>
-// 					<Dropdown.Item eventKey="3">Very Diffcult</Dropdown.Item>
+// 					<Dropdown.Item eventKey="2">Intermediate/Difficult</Dropdown.Item>
+// 					<Dropdown.Item eventKey="3">Difficult</Dropdown.Item>
+// 					<Dropdown.Item eventKey="3">Very Difficult</Dropdown.Item>
 // 				</DropdownType>
 // 			))}
 // 		</div>
 // 	);
 // }
-
 
 class LevelsDropdown extends Component {
   constructor(props) {
@@ -46,14 +45,10 @@ class LevelsDropdown extends Component {
   }
 
   handleClick = (e) => {
-    console.log("clicked!", e);
+    this.props.updateDifficulty(e);
     this.setState({
       inputValue: e,
     });
-
-    // if (e == "clicked! Very Diffcult") {
-    //   this.componentDidMount();
-    // }
   };
 
   render() {
@@ -76,12 +71,12 @@ class LevelsDropdown extends Component {
               <Dropdown.Item eventKey="Intermediate">
                 Intermediate
               </Dropdown.Item>
-              <Dropdown.Item eventKey="Intermediate & Diffcult">
-                Intermediate/Diffcult
+              <Dropdown.Item eventKey="Intermediate & Difficult">
+                Intermediate/Difficult
               </Dropdown.Item>
-              <Dropdown.Item eventKey="Diffcult">Diffcult</Dropdown.Item>
-              <Dropdown.Item eventKey="Very Diffcult">
-                Very Diffcult
+              <Dropdown.Item eventKey="Difficult">Difficult</Dropdown.Item>
+              <Dropdown.Item eventKey="Very Difficult">
+                Very Difficult
               </Dropdown.Item>
             </DropdownMenu>
           </Dropdown>
