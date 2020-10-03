@@ -31,17 +31,27 @@ function App() {
       <Hero />
       <Nav>
         <Profile />
-        <UserLocation updateLat={setLat} updateLong={setLong} />
+        <UserLocation
+          updateLat={setLat}
+          updateLong={setLong}
+          onChange={() => null}
+        />
+
         <SelectPath updateDifficulty={setDifficulty} />
         <RangeInput updateRange={setRange} />
       </Nav>
       {lat && long && difficulty && range > 0 && (
-        <OpenWeather submitLat={lat} submitLong={long} submitRange={range} />
+        <OpenWeather
+          key={lat + long}
+          submitLat={lat}
+          submitLong={long}
+          // submitRange={range}
+        />
       )}
 
       {lat && long && difficulty && range > 0 && (
         <Result
-          key={range + difficulty}
+          key={lat + long + range + difficulty}
           submitLat={lat}
           submitLong={long}
           submitRange={range}

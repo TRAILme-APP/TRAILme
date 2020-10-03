@@ -23,9 +23,9 @@ function GetWeather(props) {
         });
     }
   }, []);
-  console.log(
-    "outside of the useEffect " + weather.hourly.map((item) => item.dt)
-  );
+  // console.log(
+  //   "outside of the useEffect " + weather.hourly.map((item) => item.dt)
+  // );
 
   // axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=30.2672&lon=-97.7431&exclude=daily&appid=' + process.env.REACT_APP_OPENWEATHER_API_KEY)
   // .then(response => {
