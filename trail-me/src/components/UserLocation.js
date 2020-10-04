@@ -1,38 +1,99 @@
-import React, { Component } from "react";
-import { DropdownButton } from "react-bootstrap";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState, useEffect, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
-
+import Geocode from "react-geocode";
 
 var NodeGeocoder = require("node-geocoder");
+// import { Geocoder } from "node-geocoder";
 
-const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+let autoComplete;
 
-class UserLocation extends Component {
-  constructor(props) {
-    super();
+function SearchLocationInput(props) {
+  const loadScript = (url, callback) => {
+    let script = document.createElement("script");
+    script.type = "text/javascript";
 
-    this.state = { inputValue: "Austin, TX" };
+    if (script.readyState) {
+      script.onreadystatechange = function () {
+        if (
+          script.readyState === "loaded" ||
+          script.readyState === "complete"
+        ) {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else {
+      script.onload = () => callback();
+    }
+
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  };
+
+  function handleScriptLoad(updateQuery, autoCompleteRef) {
+    autoComplete = new window.google.maps.places.Autocomplete(
+      autoCompleteRef.current,
+      { types: ["(cities)"], componentRestrictions: { country: "us" } }
+    );
+    autoComplete.setFields(["address_components", "formatted_address"]);
+    autoComplete.addListener("place_changed", () =>
+      handlePlaceSelect(updateQuery)
+    );
   }
 
-  componentDidMount() {
+  async function handlePlaceSelect(updateQuery) {
+    const addressObject = autoComplete.getPlace();
+    const query = addressObject.formatted_address;
+    console.log("this is query: ", query);
 
+    updateQuery(query);
+    console.log("This is the addressObject: ", addressObject);
 
+    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
+    Geocode.fromAddress(addressObject.formatted_address).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log("LAT LONG DROP DOWN: ", lat, lng);
+        props.updateLat(lat);
+        props.updateLong(lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  const [query, setQuery] = useState("");
+  const autoCompleteRef = useRef(null);
+
+  useEffect(() => {
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_HIKING_PROJECT_API_KEYX}&libraries=places`,
+      () => handleScriptLoad(setQuery, autoCompleteRef)
+    );
 
     navigator.geolocation.getCurrentPosition(async (position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleMapApiKey}`;
+      console.log("LAT LONG RETURNED: ", latitude, longitude);
+
+      props.updateLat(latitude);
+      props.updateLong(longitude);
+
+      console.log("PROPS PASSED IN: ", props);
+
+      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
       let response = await fetch(apiUrl);
       let data = await response.json();
+
+      console.log("DATA TO JSON: ", data);
 
       var options = {
         provider: "google",
         httpAdapter: "https",
-        apiKey: `${googleMapApiKey}`,
+        apiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
         formatter: "json",
       };
 
@@ -42,115 +103,28 @@ class UserLocation extends Component {
         { lat: `${latitude}`, lon: `${longitude}` },
         (err, res) => {
           console.log(
-            "RES: ",
+            "RESSSS: ",
             res[0]?.city,
             res[0]?.administrativeLevels?.level1short
           );
-          this.setState({
-            inputValue:
-              res[0]?.city + ", " + res[0]?.administrativeLevels?.level1short,
-          });
+          setQuery(
+            res[0]?.city + ", " + res[0]?.administrativeLevels?.level1short
+          );
         }
       );
     });
-  }
+  }, []);
 
-  handleClick = (e) => {
-    console.log("clicked!", e);
-    this.getCity();
-    this.setState({
-      inputValue: e,
-    });
-
-    //if "Get my Location" clicked call componentDidMount()
-    if (e == "Get my Location") {
-      this.componentDidMount();
-    }
-  };
-
-  getCity = () => {
-
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputValue}&appid=6331b558a2d7fa66a892d8e22187e11a`
-      )
-      .then((response) => {
-        console.log(response.data.coord.lat);
-
-      });
-  }
-
-  render() {
-    return (
-      <div className="Location">
-        <div id="block1">
-          {" "}
-          <Dropdown className="LocationDropdown">
-            {/* <Dropdown.Menu onClick={(e) => this.handleClick()}> */}
-            <DropdownButton
-              variant="success"
-              id="dropdown-basic"
-              onSelect={(e) => this.handleClick(e)}
-            >
-              <Dropdown.Item href="#" eventKey="Austin">
-                Austin
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Corpus Christi">
-                Corpus Christi
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="El Paso">
-                El Paso
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Fort Worth">
-                Fort Worth
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Dallas">
-                Dallas
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Houston">
-                Houston
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Lubbock">
-                Lubbock
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="San Antonio">
-                San Antonio
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Waco">
-                Waco
-              </Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Get my Location">
-                <svg
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  className="bi bi-geo-alt-fill"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-                  />
-                </svg>
-                Get My Location
-              </Dropdown.Item>
-            </DropdownButton>
-          </Dropdown>
-        </div>
-        <div id="block2">
-          <Form.Group className="LocationForm">
-            <Form.Control
-              size="md"
-              type="text"
-              placeholder="Your Location"
-              value={this.state.inputValue}
-            />
-          </Form.Group>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div className="search-location-input">
+      <input
+        ref={autoCompleteRef}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Enter a City"
+        value={query}
+      />
+    </div>
+  );
 }
 
-export default UserLocation;
+export default SearchLocationInput;

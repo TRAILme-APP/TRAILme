@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 // import UserLocation from "../UserLocation";
-import Diffcultylevel from "../Diffcultylevel";
+import Difficultylevel from "../DifficultyLevel";
 import { Container, Row, Col, Button, Nav } from "react-bootstrap";
 
-function SelectPath() {
-
+function SelectPath(props) {
   const [path, setPath] = useState("");
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
     const { value } = event.target;
     setPath(value);
   };
-
-
-  console.log(path);
 
   return (
     <div className="">
@@ -23,14 +19,12 @@ function SelectPath() {
         <Row>
           <Col>
             <Nav>
-              <Diffcultylevel
+              <Difficultylevel
+                updateDifficulty={props.updateDifficulty}
                 onchange={handleInputChange}
               />
-              <Button variant="success">Let's Go!</Button>
             </Nav>
-
           </Col>
-
         </Row>
       </Container>
     </div>
