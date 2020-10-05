@@ -10,7 +10,7 @@ import SelectPath from "./components/SelectPath";
 import RangeInput from "./components/RangeInput";
 import OpenWeather from "./components/OpenWeather";
 import Result from "./components/DifficultyLevel/Result";
-import Fitbit from "./components/FitBit"
+import GetFitBit from "./components/GetFitBit";
 
 import "./App.css";
 
@@ -41,7 +41,7 @@ function App() {
         <SelectPath updateDifficulty={setDifficulty} />
         <RangeInput updateRange={setRange} />
       </Nav>
-      <Fitbit />
+      <GetFitBit />
       {lat && long && difficulty && range > 0 && (
         <OpenWeather
           key={lat + long}
