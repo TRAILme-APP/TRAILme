@@ -26,6 +26,7 @@
     "react-geocode": "^0.2.1",
     "react-json-pretty": "^2.2.0",
     "react-moment": "^0.9.7",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {

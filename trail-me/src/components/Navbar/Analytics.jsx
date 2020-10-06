@@ -3,9 +3,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Nav } from "react-bootstrap";
 
 const Analytics = () => {
-  const { user, isAuthenticated } = useAuth0();
+	const { user, isAuthenticated } = useAuth0();
 
-  return isAuthenticated && <Nav.Link>Account</Nav.Link>;
+	return (
+		isAuthenticated && <Nav.Link href="/analytics">Your Analytics</Nav.Link>
+	);
 };
 
 export default Analytics;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Nav } from "react-bootstrap";
 
@@ -10,6 +11,8 @@ import SelectPath from "./components/SelectPath";
 import RangeInput from "./components/RangeInput";
 import OpenWeather from "./components/OpenWeather";
 import Result from "./components/DifficultyLevel/Result";
+import TrailsComplete from "./components/TrailsComplete"
+import Analytics from "./components/Analytics"
 
 import "./App.css";
 
@@ -27,36 +30,44 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Hero />
-      <Nav>
-        <Profile />
-        <UserLocation
-          updateLat={setLat}
-          updateLong={setLong}
-          onChange={() => null}
-        />
+      <Router>
+        <Navbar />
+        <Hero />
+        <switch>
+          <Route exact path="/">
+            <Nav>
+              <Profile />
+              <UserLocation
+                updateLat={setLat}
+                updateLong={setLong}
+                onChange={() => null}
+              />
 
-        <SelectPath updateDifficulty={setDifficulty} />
-        <RangeInput updateRange={setRange} />
-      </Nav>
-      {lat && long && difficulty && range > 0 && (
-        <OpenWeather
-          key={lat + long}
-          submitLat={lat}
-          submitLong={long}
-          // submitRange={range}
-        />
-      )}
+              <SelectPath updateDifficulty={setDifficulty} />
+              <RangeInput updateRange={setRange} />
+            </Nav>
+            {lat && long && difficulty && range > 0 && (
+              <OpenWeather
+                key={lat + long}
+                submitLat={lat}
+                submitLong={long}
+              // submitRange={range}
+              />
+            )}
 
-      {lat && long && difficulty && range > 0 && (
-        <Result
-          key={lat + long + range + difficulty}
-          submitLat={lat}
-          submitLong={long}
-          submitRange={range}
-        />
-      )}
+            {lat && long && difficulty && range > 0 && (
+              <Result
+                key={lat + long + range + difficulty}
+                submitLat={lat}
+                submitLong={long}
+                submitRange={range}
+              />
+            )}
+          </Route>
+          <Route exact path="/trails" component={TrailsComplete} />
+          <Route exact path="/analytics" component={Analytics} />
+        </switch>
+      </Router>
     </div>
   );
 }
