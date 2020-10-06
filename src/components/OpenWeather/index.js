@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import Hour from "./Hour";
+import "./style.css"
 
 function GetWeather(props) {
   const [weather, setWeather] = useState({
@@ -37,7 +38,7 @@ function GetWeather(props) {
   // })
 
   return (
-    <Table responsive borderless variant="dark">
+    <Table responsive>
       <thead>
         <tr>
           {Array.from(weather.hourly).map((item, index) => (
@@ -54,7 +55,7 @@ function GetWeather(props) {
             <td key={index}>
               {" "}
               {item.weather.map((item, index) => (
-                <img
+                <img className="resize"
                   key={index}
                   src={`http://openweathermap.org/img/w/${item.icon}.png`}
                 />
