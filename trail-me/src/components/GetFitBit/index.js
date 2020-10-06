@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
-require('dotenv').config();
+import FitbitTestData from "../../FitbitTestData";
+
+require("dotenv").config();
 
 var config = {
   method: "get",
@@ -14,19 +16,19 @@ var config = {
 
 function GetFitBit() {
   const [fitbit, setFitbit] = useState({
-    activities: [{}],
+    activities: FitbitTestData.activities,
   });
 
-  useEffect(() => {
-    axios(config)
-      .then(function (response) {
-        setFitbit(response.data);
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios(config)
+  //     .then(function (response) {
+  //       setFitbit(response.data);
+  //       console.log(JSON.stringify(response.data));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   //   console.log(
   //     "Fitbit Activities" + fitbit.activities.map((item) => item)
@@ -74,7 +76,10 @@ function GetFitBit() {
         </tr>
         <tr>
           {Array.from(fitbit.activities).map((item, index) => (
-            <td key={index}> {`Duration: ` + Math.floor(item.activeDuration /60000) +` min`}</td>
+            <td key={index}>
+              {" "}
+              {`Duration: ` + Math.floor(item.activeDuration / 60000) + ` min`}
+            </td>
           ))}
         </tr>
         <tr>
@@ -82,8 +87,6 @@ function GetFitBit() {
             <td key={index}> {`Steps: ` + item.steps}</td>
           ))}
         </tr>
-
-        
       </tbody>
     </Table>
   );
