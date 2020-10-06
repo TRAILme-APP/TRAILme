@@ -13,7 +13,7 @@ function GetWeather(props) {
     if (props.submitLat) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${props.submitLat}&lon=${props.submitLong}&exclude=daily&appid=6331b558a2d7fa66a892d8e22187e11a`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${props.submitLat}&lon=${props.submitLong}&exclude=daily&appid=`+process.env.REACT_APP_OPENWEATHER_API_KEY
         )
         .then((response) => {
           console.log(response);
