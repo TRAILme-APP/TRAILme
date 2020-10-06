@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import Geocode from "react-geocode";
+import "../App.css";
 
 var NodeGeocoder = require("node-geocoder");
 // import { Geocoder } from "node-geocoder";
@@ -116,8 +117,9 @@ function SearchLocationInput(props) {
   }, []);
 
   return (
-    <div className="search-location-input">
+    <div className="search-location-input searchLocation-input">
       <input
+        className="searchLocation-input"
         ref={autoCompleteRef}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Enter a City"

@@ -30,18 +30,20 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
-      <Nav>
+      <Nav className="nav-auto">
         <Profile />
+        <RangeInput updateRange={setRange} />
+
         <UserLocation
           updateLat={setLat}
           updateLong={setLong}
           onChange={() => null}
         />
-
-        <SelectPath updateDifficulty={setDifficulty} />
-        <RangeInput updateRange={setRange} />
+        <SelectPath
+          className="select-difficulty"
+          updateDifficulty={setDifficulty}
+        />
       </Nav>
-      <GetFitBit />
       {lat && long && difficulty && range > 0 && (
         <OpenWeather
           key={lat + long}
@@ -59,6 +61,8 @@ function App() {
           submitRange={range}
         />
       )}
+
+      <GetFitBit />
     </div>
   );
 }
