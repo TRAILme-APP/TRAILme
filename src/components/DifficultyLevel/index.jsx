@@ -53,17 +53,17 @@ class LevelsDropdown extends Component {
 
   render() {
     return (
-      <div className="mb-2">
+      <div className="mb-2 select-difficulty">
         <div id="block2">
           <Dropdown
             className="LevelsDropdown"
             onSelect={(e) => this.handleClick(e)}
             inputValue={this.state.inputValue}
           >
-            <DropdownToggle variant="success" id="dropdown-basic">
+            <DropdownToggle id="dropdown-basic">
               {this.state.inputValue}
             </DropdownToggle>
-            <DropdownMenu variant="success" id="dropdown-levels">
+            <DropdownMenu id="dropdown-levels">
               <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
               <Dropdown.Item eventKey="Easy & Intermediate">
                 Easy/Intermediate

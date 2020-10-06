@@ -12,13 +12,14 @@ import {
   Button,
 } from "react-bootstrap";
 
-export default function index() {
+import "../../App.css";
 
+export default function index() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+    <Navbar className="style-navbar navbar-dark" expand="xx-lg">
+      <Navbar.Toggle className="nav-toggle" aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse className="nav-toggle" id="basic-navbar-nav">
+        <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
           <TrailsComplete />
           <Analytics />

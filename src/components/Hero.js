@@ -3,6 +3,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../App.css";
 
 class Hero extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Hero extends React.Component {
   render() {
     return (
       <div>
-        <Jumbotron className="bg-transparent jumbotron-fluid p-0">
-          <Container fluid={true}>
+        <Jumbotron className="jumbotron jumbotron-fluid p-0" id="jumbo">
+          <Container className="hero-container" fluid={true}>
             <Row className="justify-content-center py-5">
               <Col md={8} sm={12}>
                 {this.state.home.title && (

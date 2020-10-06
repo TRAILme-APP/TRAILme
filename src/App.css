@@ -1,17 +1,67 @@
 img {
   width: 120px;
 }
+
 .App {
-  background-image: url("/forest.jpg");
-
-  /* Set a specific height */
   height: 100vh;
+}
 
-  /* Create the parallax scrolling effect */
+h1 {
+  color: white;
+  margin: auto;
+  text-align-last: center;
+  margin-top: 100px !important;
+  font-size: 125px !important;
+}
+
+.hero-container {
+  background-image: url("/forest.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.jumbotron {
+  display: center;
+  background: transparent !important;
+  margin: 0;
+}
+
+#jumbo {
+  margin: auto;
+}
+
+#jumbo-div {
+  display: inline-flex;
+}
+
+.style-navbar {
+  background: #0a0a0a;
+  font-weight: bolder;
+}
+
+.nav-auto {
+  margin: auto;
+}
+.mr-nav {
+  /* display: inline-flex !important; */
+  flex-direction: row;
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+}
+
+.explore-radius {
+  /* display: inline-flex !important; */
+  margin-top: 20px;
+  display: flex;
+}
+
+.range-input {
+  padding-right: 10px !important;
+  align-content: center;
+  width: 45px;
 }
 
 .Location {
@@ -19,12 +69,25 @@ img {
   justify-content: center;
 }
 
-.LocationDropdown {
-	display: inline-block;
-	flex-direction: column;
-	justify-content: space-evenly;
-	/* margin: 10px; */
+.searchLocation-input {
+  font-size: 20px;
+  width: 500px;
+  padding: 10px;
+  border: 1;
+}
 
+.nav-toggle {
+  border: 0px !important;
+}
+
+.nav {
+  padding: 10px;
+  display: inline-block;
+  justify-content: center;
+}
+
+.select-difficulty {
+  margin: auto !important;
 }
 
 .selectPath {
@@ -35,8 +98,38 @@ img {
   transform: translate(-50%, -50%);
 }
 
-h1 {
-  color: white;
+.row-container {
+  display: flex;
+  flex-direction: row;
   margin: auto;
-  text-align-last: center;
+}
+
+#dropdown-basic {
+  color: white;
+  background-color: #87a937;
+  border-color: #87a937;
+  border-radius: inherit;
+  width: fit-content;
+  height: 53px;
+}
+
+.range-div {
+  flex-direction: row;
+  height: 30px;
+  border-color: lawngreen;
+  border-width: medium;
+}
+
+.label-range {
+  color: black;
+  font-size: 20px;
+  margin-right: 10px !important;
+}
+
+.radius-container {
+  margin-left: auto;
+}
+
+.LevelsDropdown {
+  margin: auto;
 }
