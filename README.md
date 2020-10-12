@@ -1,5 +1,11 @@
 # TRAILme-App Version 2 MERN STACK
 
+## Reference Links
+
+Link to TrailMe App deployed on Heroku - [TRAILme App Live Link](https://trailme.herokuapp.com/)
+
+Link to Project Board used for application development - [Project Board](https://github.com/TRAILme-APP/TRAILme/projects/2)
+
 ### Table of Contents
 
 - [Application MVP](#application-mvp)
@@ -99,16 +105,6 @@ TRAILme features is a web app will show hiking trails and information near the u
 - Morgan using `npm i Morgan`
 
   --more NPM packages will be defined and explained here--
-
----
-
-## Reference Links
-
-Link to TrailMe App deployed on Heroku - [TRAILme App Live Link](https://---.herokuapp.com/)
-
-Link to GitHub Repo used for application development - [TRAILme App GitHub Repo](https://github.com/TRAILme-APP/TRAILme)
-
-Link to Project Board used for application development - [Project Board](https://github.com/TRAILme-APP/TRAILme/projects/2)
 
 ---
 
